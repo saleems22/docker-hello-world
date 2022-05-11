@@ -13,7 +13,7 @@ spec:
         app: jenkins-demo
     spec:
       containers:
-      - image: swr.ap-southeast-3.myhuaweicloud.com /batch/jenkins-demo:<BUILD_TAG>
+      - image: swr.ap-southeast-3.myhuaweicloud.com /batch/docker-hello-world:<BUILD_TAG>
         ports:
           - containerPort: 80        
         imagePullPolicy: IfNotPresent
