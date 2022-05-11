@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - image: swr.cn-east-3.myhuaweicloud.com/batch/docker-hello-world:<BUILD_TAG>
-      - port:
+      - ports:
           containerPort: 80           
         name: docker-hello-world
         env:
