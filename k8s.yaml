@@ -1,28 +1,26 @@
---- 
 apiVersion: apps/v1
 kind: Deployment
-metadata: 
-  name: docker-hello-world
+metadata:
+  name: jenkins-demo
   namespace: default
-spec: 
-  selector: 
-    matchLabels: 
-      app: docker-hello-world
-  template: 
-    metadata: 
-      labels: 
-        app: docker-hello-world
-    spec: 
-      containers: 
-        - 
-          image: "swr.cn-east-3.myhuaweicloud.com/batch/docker-hello-world:<BUILD_TAG>"
-        - 
-          env: 
-            - 
-              name: branch
-          name: docker-hello-world
-          ports: 
-            containerPort: 80
-      imagePullSecrets: 
-        - 
-          name: default-secret
+spec:
+  selector:
+    matchLabels:
+      app: jenkins-demo
+  template:
+    metadata:
+      labels:
+        app: jenkins-demo
+    spec:
+      containers:
+      - image: swr.cn-east-3.myhuaweicloud.com/batch/jenkins-demo:<BUILD_TAG>
+        imagePullPolicy: IfNotPresent
+        command:
+          - sleep
+        args:
+          - '1000'
+        name: jenkins-demo
+        env:
+        - name: branch
+      imagePullSecrets:
+        - name: default-secret
