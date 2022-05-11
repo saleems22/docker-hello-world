@@ -14,6 +14,8 @@ spec:
     spec:
       containers:
       - image: swr.cn-east-3.myhuaweicloud.com/batch/jenkins-demo:<BUILD_TAG>
+        ports:
+          - containerPort: 80        
         imagePullPolicy: IfNotPresent
         command:
           - sleep
