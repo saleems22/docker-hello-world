@@ -1,23 +1,28 @@
+--- 
 apiVersion: apps/v1
 kind: Deployment
-metadata:
+metadata: 
   name: docker-hello-world
   namespace: default
-spec:
-  selector:
-    matchLabels:
+spec: 
+  selector: 
+    matchLabels: 
       app: docker-hello-world
-  template:
-    metadata:
-      labels:
+  template: 
+    metadata: 
+      labels: 
         app: docker-hello-world
-    spec:
-      containers:
-      - image: swr.cn-east-3.myhuaweicloud.com/batch/docker-hello-world:<BUILD_TAG>
-      - ports:
-          containerPort: 80           
-        name: docker-hello-world
-        env:
-        - name: branch
-      imagePullSecrets:
-        - name: default-secret
+    spec: 
+      containers: 
+        - 
+          image: "swr.cn-east-3.myhuaweicloud.com/batch/docker-hello-world:<BUILD_TAG>"
+        - 
+          env: 
+            - 
+              name: branch
+          name: docker-hello-world
+          ports: 
+            containerPort: 80
+      imagePullSecrets: 
+        - 
+          name: default-secret
