@@ -14,13 +14,13 @@ node('haimaxy-jnlp') {
     }
     stage('Build') {
         echo "3.Build Docker Image Stage"
-        sh "docker build -t cnych/docker-nginx-hello-world:${build_tag} ."
+        sh "docker build -t cnych/docker-hello-world:${build_tag} ."
     }
     stage('Push') {
         echo "4.Push Docker Image Stage"
         withCredentials([usernamePassword(credentialsId: 'dockerHub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
             sh "docker login -u ${dockerHubUser} -p ${dockerHubPassword}"
-            sh "docker push cnych/docker-nginx-hello-world:${build_tag}"
+            sh "docker push cnych/docker-hello-world:${build_tag}"
         }
     }
     stage('Deploy') {
